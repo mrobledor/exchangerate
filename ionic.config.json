@@ -1,0 +1,7 @@
+{
+  "name": "tasasdecambio",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
