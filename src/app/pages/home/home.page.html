@@ -1,0 +1,87 @@
+<ion-header >
+  <ion-toolbar color="background" 
+               class="ion-text-center">
+    <ion-title color="titles" 
+               style="font-weight: bold;" >
+      Tasa de Cambio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="background" >
+  
+  <form #form="ngForm" 
+        class="ion-padding" 
+        (ngSubmit)="onSubmit()" 
+        style="margin-top: 80px;">
+        <ion-row style="justify-content: end;">
+          <ion-col >
+    <ion-item color="background" >
+      <ion-label>De:</ion-label>
+      <ion-select  [(ngModel)]="de" 
+                   name="de" 
+                   (ionChange)="secondOnChange()"
+                   class="ion-justify-content-end">
+        <ion-select-option value="CLP" >CLP</ion-select-option>
+        <ion-select-option value="USD">USD</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item color="background">
+      <ion-label>A:</ion-label>
+      <ion-select  [(ngModel)]="a" 
+                  name="a" 
+                  (ionChange)="firstOnChange()"> 
+        <ion-select-option value="CLP">CLP</ion-select-option>
+        <ion-select-option value="USD">USD</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-col>
+</ion-row>
+<br>
+<ion-label position="stacked" 
+           class="ion-padding" 
+           style="font-weight: bold;">
+           Monto a Convertir:
+  </ion-label>
+<br>
+<br>
+<ion-item color="background" 
+          style="border-radius: 30px; text-align: center;">
+      
+      <ion-input type="text" 
+                 [(ngModel)]="entrada" 
+                 name="entrada" 
+                 required="true"  
+                 pattern="[0-9]*">
+        </ion-input>
+    </ion-item>
+  <br>
+  <br>
+  <br>
+    <div class="center">
+    <ion-button [disabled]="form.invalid"
+                type="submit" 
+                style="text-align: center;height: 60px; width: 200px;" 
+                color="style1" 
+                shape="round">
+                Convertir
+    </ion-button>
+  </div>
+  
+  <br>
+  <br>
+  <ion-label position="stacked" 
+             class="ion-padding" 
+             style="font-weight: bold;">
+             Resultado:
+   </ion-label>
+  <ion-item class="ion-padding" 
+            color="background" 
+            style="text-align: center;">
+    <ion-label *ngIf="numero>0">
+      {{numero}} {{a}}
+    </ion-label>
+    
+  </ion-item>
+</form>
+</ion-content>
